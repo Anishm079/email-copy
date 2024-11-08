@@ -1,13 +1,13 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .w-100 {
-   width:100%;
+  width: 100%;
 }
 
 .h-dvh {
@@ -50,11 +50,11 @@
   background-color: #990000;
 }
 
-.bg-tomato{
+.bg-tomato {
   background-color: tomato;
 }
 
-.header{
+.header {
   text-align: center;
   font-size: larger;
   padding-top: 2em;
