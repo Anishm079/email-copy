@@ -104,8 +104,8 @@ export const GetMessageText = forwardRef<HTMLDivElement, GetMessageTextProps>(
           <br />
           <br />
           This is Anish here. I came across the {profile} opening at{' '}
-          {companyName} on {!source ? source : 'LinkedIn'} and would
-          like to apply for the role.
+          {companyName} on {!source ? source : 'LinkedIn'} and would like to
+          apply for the role.
           <br />
           <br />
           <strong>

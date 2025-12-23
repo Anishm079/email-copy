@@ -5,7 +5,11 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import './App.css';
 import { Button, Grid2, TextField } from '@mui/material';
-import { GetEmailText, GetMessageText, Item } from './utility/UtilityComponents';
+import {
+  GetEmailText,
+  GetMessageText,
+  Item,
+} from './utility/UtilityComponents';
 import { copyStyledText } from './constants/emailText';
 
 function App() {
