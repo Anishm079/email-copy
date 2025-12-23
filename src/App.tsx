@@ -5,7 +5,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import './App.css';
 import { Button, Grid2, TextField } from '@mui/material';
-import { GetEmailText, Item } from './utility/UtilityComponents';
+import { GetEmailText, GetMessageText, Item } from './utility/UtilityComponents';
 import { copyStyledText } from './constants/emailText';
 
 function App() {
@@ -13,8 +13,11 @@ function App() {
   const [hrName, setHrName] = useState<string>('HR');
   const [companyName, setCompanyName] = useState<string>('');
   const [copied, setCopied] = useState<boolean>(false);
+  const [copiedMsg, setCopiedMsg] = useState<boolean>(false);
+  const [source, setSource] = useState<string>('');
 
   const emailTextRef = useRef<HTMLDivElement>(null);
+  const messageTextRef = useRef<HTMLDivElement>(null);
 
   function handleProfileChange(event: SelectChangeEvent): void {
     setProfile(event.target.value as string);
@@ -28,17 +31,38 @@ function App() {
     setCompanyName(event.target.value as string);
   }
 
+  function handleSourceChange(event: ChangeEvent<HTMLInputElement>): void {
+    setSource(event.target.value as string);
+  }
+
   function handleCopyEmailText(): void {
     if (emailTextRef.current) {
       copyStyledText(emailTextRef.current);
       setCopied(true);
+      clearCopiedStatus();
     }
+  }
+
+  function handleCopyMessageText(): void {
+    if (messageTextRef.current) {
+      navigator.clipboard.writeText(messageTextRef.current.innerText);
+      setCopied(true);
+      clearCopiedStatus();
+    }
+  }
+
+  function clearCopiedStatus(): void {
+    setTimeout(() => {
+      setCopied(false);
+      setCopiedMsg(false);
+    }, 1000);
   }
 
   function handleReset(): void {
     setProfile('');
     setCompanyName('');
     setHrName('HR');
+    setSource('');
     setCopied(false);
   }
 
@@ -84,7 +108,7 @@ function App() {
             />
           </Item>
         </Grid2>
-        <Grid2 size={{ xs: 12, md: 12, sm: 12 }}>
+        <Grid2 size={{ xs: 12, md: 6, sm: 6 }}>
           <Item>
             <TextField
               fullWidth
@@ -92,6 +116,18 @@ function App() {
               label="Company Name"
               value={companyName}
               onChange={handleCompanyNameChange}
+              variant="outlined"
+            />
+          </Item>
+        </Grid2>
+        <Grid2 size={{ xs: 12, md: 6, sm: 6 }}>
+          <Item>
+            <TextField
+              fullWidth
+              id="outlined-basic"
+              label="Source"
+              value={source}
+              onChange={handleSourceChange}
               variant="outlined"
             />
           </Item>
@@ -112,7 +148,19 @@ function App() {
           <Item>
             <Button
               className="w-100"
-              color={'primary'}
+              color={copiedMsg ? 'success' : 'warning'}
+              variant="contained"
+              onClick={handleCopyMessageText}
+            >
+              {copiedMsg ? 'Copied' : 'Copy Message'}
+            </Button>
+          </Item>
+        </Grid2>
+        <Grid2 size={{ xs: 12, md: 12, sm: 12 }}>
+          <Item>
+            <Button
+              className="w-100"
+              color={'error'}
               variant="contained"
               onClick={handleReset}
             >
@@ -131,6 +179,22 @@ function App() {
                 companyName={companyName}
                 hrName={hrName}
                 profile={profile}
+                source={source}
+              />
+            </div>
+          </Item>
+        </Grid2>
+        <Grid2>
+          <Item>
+            <div
+              style={{ marginTop: '2em', textAlign: 'start', color: 'black' }}
+            >
+              <GetMessageText
+                ref={messageTextRef}
+                companyName={companyName}
+                hrName={hrName}
+                profile={profile}
+                source={source}
               />
             </div>
           </Item>
