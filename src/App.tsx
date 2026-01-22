@@ -85,14 +85,16 @@ function App() {
     <div className="w-100 h-dvh">
       <h2 className="w-100 header">
         copy email
-        {subjectCopied ? 
+        {subjectCopied ? (
           <CheckBoxIcon
             style={{ verticalAlign: 'middle', marginLeft: '0.5em' }}
-          /> : 
+          />
+        ) : (
           <ContentCopyIcon
-          onClick={handleCopySubjectText}
+            onClick={handleCopySubjectText}
             style={{ verticalAlign: 'middle', marginLeft: '0.5em' }}
-        />}
+          />
+        )}
       </h2>
       <Grid2 container spacing={2} margin={5}>
         <Grid2 size={{ xs: 12, md: 6, sm: 6 }}>
