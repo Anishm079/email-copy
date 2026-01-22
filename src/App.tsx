@@ -11,6 +11,8 @@ import {
   Item,
 } from './utility/UtilityComponents';
 import { copyStyledText } from './constants/emailText';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 function App() {
   const [profile, setProfile] = useState<string>('');
@@ -19,6 +21,7 @@ function App() {
   const [copied, setCopied] = useState<boolean>(false);
   const [copiedMsg, setCopiedMsg] = useState<boolean>(false);
   const [source, setSource] = useState<string>('');
+  const [subjectCopied, setSubjectCopied] = useState<boolean>(false);
 
   const emailTextRef = useRef<HTMLDivElement>(null);
   const messageTextRef = useRef<HTMLDivElement>(null);
@@ -55,10 +58,18 @@ function App() {
     }
   }
 
+  function handleCopySubjectText(): void {
+    const subject = `Application for ${profile} position`;
+    navigator.clipboard.writeText(subject);
+    setSubjectCopied(true);
+    clearCopiedStatus();
+  }
+
   function clearCopiedStatus(): void {
     setTimeout(() => {
       setCopied(false);
       setCopiedMsg(false);
+      setSubjectCopied(false);
     }, 1000);
   }
 
@@ -72,7 +83,17 @@ function App() {
 
   return (
     <div className="w-100 h-dvh">
-      <h2 className="w-100 header">copy email</h2>
+      <h2 className="w-100 header">
+        copy email
+        {subjectCopied ? 
+          <CheckBoxIcon
+            style={{ verticalAlign: 'middle', marginLeft: '0.5em' }}
+          /> : 
+          <ContentCopyIcon
+          onClick={handleCopySubjectText}
+            style={{ verticalAlign: 'middle', marginLeft: '0.5em' }}
+        />}
+      </h2>
       <Grid2 container spacing={2} margin={5}>
         <Grid2 size={{ xs: 12, md: 6, sm: 6 }}>
           <Item>
