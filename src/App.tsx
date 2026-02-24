@@ -84,7 +84,7 @@ function App() {
   return (
     <div className="w-100 h-dvh">
       <h2 className="w-100 header">
-        copy email
+        copy email and message
         {subjectCopied ? (
           <CheckBoxIcon
             style={{ verticalAlign: 'middle', marginLeft: '0.5em' }}
