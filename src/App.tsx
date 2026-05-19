@@ -16,11 +16,12 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox';
 
 function App() {
   const [profile, setProfile] = useState<string>('');
+  const [customProfile, setCustomProfile] = useState<string>('');
   const [hrName, setHrName] = useState<string>('HR');
   const [companyName, setCompanyName] = useState<string>('');
-  const [copied, setCopied] = useState<boolean>(false);
   const [copiedMsg, setCopiedMsg] = useState<boolean>(false);
-  const [source, setSource] = useState<string>('');
+  const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
+  const [source, setSource] = useState<string>('LinkedIn');
   const [subjectCopied, setSubjectCopied] = useState<boolean>(false);
 
   const emailTextRef = useRef<HTMLDivElement>(null);
@@ -30,13 +31,17 @@ function App() {
     setProfile(event.target.value as string);
   }
 
+  function handleCustomProfileChange(event: ChangeEvent<HTMLInputElement>): void {
+    setCustomProfile(event.target.value as string);
+  }
+
   function handleHRNameChange(event: ChangeEvent<HTMLInputElement>): void {
     setHrName(event.target.value as string);
   }
 
-  function handleCompanyNameChange(event: ChangeEvent<HTMLInputElement>): void {
-    setCompanyName(event.target.value as string);
-  }
+  // function handleCompanyNameChange(event: ChangeEvent<HTMLInputElement>): void {
+  //   setCompanyName(event.target.value as string);
+  // }
 
   function handleSourceChange(event: ChangeEvent<HTMLInputElement>): void {
     setSource(event.target.value as string);
@@ -45,7 +50,7 @@ function App() {
   function handleCopyEmailText(): void {
     if (emailTextRef.current) {
       copyStyledText(emailTextRef.current);
-      setCopied(true);
+      setCopiedEmail(true);
       clearCopiedStatus();
     }
   }
@@ -53,7 +58,7 @@ function App() {
   function handleCopyMessageText(): void {
     if (messageTextRef.current) {
       navigator.clipboard.writeText(messageTextRef.current.innerText);
-      setCopied(true);
+      setCopiedMsg(true);
       clearCopiedStatus();
     }
   }
@@ -67,7 +72,7 @@ function App() {
 
   function clearCopiedStatus(): void {
     setTimeout(() => {
-      setCopied(false);
+      setCopiedEmail(false);
       setCopiedMsg(false);
       setSubjectCopied(false);
     }, 1000);
@@ -75,10 +80,10 @@ function App() {
 
   function handleReset(): void {
     setProfile('');
+    setCustomProfile('');
     setCompanyName('');
     setHrName('HR');
-    setSource('');
-    setCopied(false);
+    setSource('LinkedIn');
   }
 
   return (
@@ -119,10 +124,30 @@ function App() {
                 <MenuItem value={'Next Js Developer'}>Next Js</MenuItem>
                 <MenuItem value={'Nest Js Developer'}>Nest Js</MenuItem>
                 <MenuItem value={'Python Developer'}>Python Developer</MenuItem>
+                <MenuItem value={'UI Developer'}>UI Developer</MenuItem>
+                <MenuItem value={'Frontend Developer'}>
+                  Frontend Developer
+                </MenuItem>
+                <MenuItem value={'Backend Developer'}>Backend Developer</MenuItem>
+                <MenuItem value={'Custom'}>Custom</MenuItem>
               </Select>
             </FormControl>
           </Item>
         </Grid2>
+        {profile === 'Custom' && (
+          <Grid2 size={{ xs: 12, md: 6, sm: 6 }}>
+            <Item>
+              <TextField
+                fullWidth
+                id="outlined-basic"
+                label="Custom Profile"
+                value={customProfile}
+                onChange={handleCustomProfileChange}
+                variant="outlined"
+              />
+            </Item>
+          </Grid2>
+        )}
         <Grid2 size={{ xs: 12, md: 6, sm: 6 }}>
           <Item>
             <TextField
@@ -131,18 +156,6 @@ function App() {
               label="HR Name"
               value={hrName}
               onChange={handleHRNameChange}
-              variant="outlined"
-            />
-          </Item>
-        </Grid2>
-        <Grid2 size={{ xs: 12, md: 6, sm: 6 }}>
-          <Item>
-            <TextField
-              fullWidth
-              id="outlined-basic"
-              label="Company Name"
-              value={companyName}
-              onChange={handleCompanyNameChange}
               variant="outlined"
             />
           </Item>
@@ -163,11 +176,11 @@ function App() {
           <Item>
             <Button
               className="w-100"
-              color={copied ? 'success' : 'secondary'}
+              color={copiedEmail ? 'success' : 'secondary'}
               variant="contained"
               onClick={handleCopyEmailText}
             >
-              {copied ? 'Copied' : 'Copy Email'}
+              {copiedEmail ? 'Copied' : 'Copy Email'}
             </Button>
           </Item>
         </Grid2>
@@ -218,9 +231,8 @@ function App() {
             >
               <GetMessageText
                 ref={messageTextRef}
-                companyName={companyName}
                 hrName={hrName}
-                profile={profile}
+                profile={profile==="Custom" ? customProfile : profile}
                 source={source}
               />
             </div>

@@ -21,65 +21,61 @@ export const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export const GetEmailText = forwardRef<HTMLDivElement, GetEmailTextProps>(
-  ({ companyName, hrName, profile, source }, ref) => {
+  ({ hrName }, ref) => {
     return (
       <div ref={ref}>
         <span>
-          <span style={{ textTransform: 'capitalize' }}>
-            {hrName === 'HR' ? 'Dear' : 'Hi'} {hrName},
-          </span>
-          <br />
-          <br />I hope this message finds you well. I am reaching out to express
-          my interest in the {profile} position{' '}
-          {companyName ? 'at ' + companyName : ''}, as advertised on{' '}
-          {!source ? source : 'LinkedIn'}.
+          Hi {hrName},
           <br />
           <br />
-          <strong>
-            With 3 years of professional experience — 1 year at Aldebaran Media
-            Pvt. Ltd. and 2 years at Embifi Global Services Pvt. Ltd.
-          </strong>{' '}
-          — I have gained strong expertise in building and maintaining scalable
-          web applications using the <strong>MERN stack</strong>.
+          I am a Full Stack Developer with 3.5+ years of experience specialized
+          in building secure, high-scale fintech and digital marketing platforms
+          using <strong>TypeScript, Javascript, React.js, Node.js, Python, and Next.js.</strong>.
           <br />
           <br />
-          <strong>At Aldebaran Media, </strong>
-          I played a key role in managing server traffic of over 10 million
-          requests per day. I worked on enhancing digital marketing solutions by
-          ensuring valid and authentic client clicks, while contributing to
-          multiple projects involving coupon websites and internal applications.
-          My responsibilities included development using the MERN stack and
-          deploying services across DigitalOcean Droplets, Firebase, AWS
-          Amplify, and Cloudflare.
+          Given your current engineering growth, I wanted to reach out. I excel
+          at bridging the gap between complex cloud infrastructure and rapid
+          product delivery. A few highlights of my work include:
           <br />
           <br />
-          <strong>At Embifi, </strong>
-          I played a key role in developing a loan management system and
-          utilized AWS services for CI/CD pipelines and automation processes.
-          These experiences have honed my ability to design efficient solutions
-          and contribute effectively to cross-functional teams.
+          <strong>🚀 High-Scale Marketing Systems:</strong> Engineered a Next.js
+          and Redis-driven offer infrastructure serving{' '}
+          <strong>15–20 million daily active users</strong>, utilizing
+          geo-intelligence and IPQS fraud detection to completely neutralize
+          ad-bot spam.
           <br />
           <br />
-          Please find my resume attached for your review. I would be delighted
-          to discuss how my background and skills can contribute to the success
-          of your team. Feel free to reach out if you require any additional
-          details.
+          <strong>💳 Fintech Product Evolution:</strong> Accelerated core
+          credit-processing speeds by <strong>15%</strong> by migrating legacy
+          workflows into a real-time Socket.io Kanban dashboard, and natively
+          consolidated the repayment lifecycle via custom NACH payment
+          integrations.
           <br />
           <br />
-          Thank you very much for considering my application. I look forward to
-          the opportunity to connect.
+          <strong>☁️ Cloud &amp; Server Architecture:</strong> Optimized
+          high-availability multi-tier infrastructures across{' '}
+          <strong>AWS (Lambda, EC2, S3)</strong> and DigitalOcean Droplets,
+          implementing robust automated CI/CD pipelines to securely handle
+          millions of requests.
+          <br />
+          <br />
+          I have attached my resume for your review. I am actively interviewing
+          and available to connect as early as tomorrow morning. Could we sync
+          up for a brief, <strong>10-minute introductory call</strong>? You can
+          reach me directly at <strong>+91-8296118668</strong>.
           <br />
           <br />
           <strong>
-            Warm Regards,
+            Best regards,
             <br />
-            Anish Ahammad
+            Anish Ahammad Mulla
             <br />
-            anishmulla7@gmail.com | +91 8296118668
+            +91-8296118668
             <br />
+            anishmulla7@gmail.com
+            <br />
+            <a href='https://github.com/Anishm079'>github.com</a> | <a href='https://www.linkedin.com/in/anish-mulla-511b391b2/'>linkedin.com</a>
           </strong>
-          <br />
-          <br />
         </span>
       </div>
     );
@@ -87,30 +83,27 @@ export const GetEmailText = forwardRef<HTMLDivElement, GetEmailTextProps>(
 );
 
 interface GetMessageTextProps {
-  companyName: string;
   hrName?: string;
   profile?: string;
   source?: string;
 }
 
 export const GetMessageText = forwardRef<HTMLDivElement, GetMessageTextProps>(
-  ({ companyName, hrName, profile, source }, ref) => {
+  ({ hrName, profile, source }, ref) => {
     return (
       <div ref={ref}>
         <span>
-          <span style={{ textTransform: 'capitalize' }}>
-            {hrName === 'HR' ? 'Dear' : 'Hi'} {hrName},
-          </span>
+          Hi {hrName},
           <br />
           <br />
-          This is Anish here. I came across the {profile} opening at{' '}
-          {companyName} on {!source ? source : 'LinkedIn'} and would like to
+          This is Anish. I came across the {profile} opening on {!source ? source : 'LinkedIn'} and would like to
           apply for the role.
           <br />
           <br />
           <strong>
-            I have around 3 years of experience working as a Full Stack
-            Developer (MERN stack) at Aldebaran Media and Embifi in New Delhi.
+            I am a Full Stack Developer with 3.5+ years of experience specialized
+            in building secure, high-scale fintech and digital marketing platforms
+            using TypeScript, Javascript, React.js, Node.js, Python, and Next.js.
           </strong>
           <br />
           <br />
@@ -119,11 +112,13 @@ export const GetMessageText = forwardRef<HTMLDivElement, GetMessageTextProps>(
           <br />
           <br />
           <strong>
-            Warm Regards,
+            Best regards,
             <br />
-            Anish Ahammad
+            Anish Ahammad Mulla
             <br />
-            anishmulla7@gmail.com | +91 8296118668
+            +91-8296118668
+            <br />
+            anishmulla7@gmail.com
             <br />
           </strong>
         </span>
