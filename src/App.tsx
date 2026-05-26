@@ -31,7 +31,9 @@ function App() {
     setProfile(event.target.value as string);
   }
 
-  function handleCustomProfileChange(event: ChangeEvent<HTMLInputElement>): void {
+  function handleCustomProfileChange(
+    event: ChangeEvent<HTMLInputElement>,
+  ): void {
     setCustomProfile(event.target.value as string);
   }
 
@@ -128,7 +130,9 @@ function App() {
                 <MenuItem value={'Frontend Developer'}>
                   Frontend Developer
                 </MenuItem>
-                <MenuItem value={'Backend Developer'}>Backend Developer</MenuItem>
+                <MenuItem value={'Backend Developer'}>
+                  Backend Developer
+                </MenuItem>
                 <MenuItem value={'Custom'}>Custom</MenuItem>
               </Select>
             </FormControl>
@@ -232,7 +236,7 @@ function App() {
               <GetMessageText
                 ref={messageTextRef}
                 hrName={hrName}
-                profile={profile==="Custom" ? customProfile : profile}
+                profile={profile === 'Custom' ? customProfile : profile}
                 source={source}
               />
             </div>
