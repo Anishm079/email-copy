@@ -38,30 +38,33 @@ export const GetEmailText = forwardRef<HTMLDivElement, GetEmailTextProps>(
           product delivery. A few highlights of my work include:
           <br />
           <br />
-          <strong>🚀 High-Scale Marketing Systems:</strong> Engineered a Next.js
-          and Redis-driven offer infrastructure serving{' '}
-          <strong>15–20 million daily active users</strong>, utilizing
-          geo-intelligence and IPQS fraud detection to completely neutralize
-          ad-bot spam.
-          <br />
-          <br />
-          <strong>💳 Fintech Product Evolution:</strong> Accelerated core
-          credit-processing speeds by <strong>15%</strong> by migrating legacy
-          workflows into a real-time Socket.io Kanban dashboard, and natively
-          consolidated the repayment lifecycle via custom NACH payment
-          integrations.
-          <br />
-          <br />
-          <strong>☁️ Cloud &amp; Server Architecture:</strong> Optimized
-          high-availability multi-tier infrastructures across{' '}
-          <strong>AWS (Lambda, EC2, S3)</strong> and DigitalOcean Droplets,
-          implementing robust automated CI/CD pipelines to securely handle
-          millions of requests.
+          <ul style={{ textAlign: 'left', display: 'inline-block', margin: 0, paddingLeft: 18 }}>
+            <li>
+              <strong>High-Scale Marketing Systems:</strong> Engineered a Next.js
+              and Redis-driven offer infrastructure serving{' '}
+              <strong>15–20 million daily active users</strong>, utilizing
+              geo-intelligence and IPQS fraud detection to completely neutralize
+              ad-bot spam.
+            </li>
+            <li>
+              <strong>Fintech Product Evolution:</strong> Accelerated core
+              credit-processing speeds by <strong>15%</strong> by migrating legacy
+              workflows into a real-time Socket.io Kanban dashboard, and natively
+              consolidated the repayment lifecycle via custom NACH payment
+              integrations.
+            </li>
+            <li>
+              <strong>Cloud &amp; Server Architecture:</strong> Optimized
+              high-availability multi-tier infrastructures across{' '}
+              <strong>AWS (Lambda, EC2, S3)</strong> and DigitalOcean Droplets,
+              implementing robust automated CI/CD pipelines to securely handle
+              millions of requests.
+            </li>
+          </ul>
           <br />
           <br />
           I have attached my resume for your review. I am actively interviewing
-          and available to connect as early as tomorrow morning. Could we sync
-          up for a brief, <strong>10-minute introductory call</strong>? You can
+          and available to connect as early as possible.You can
           reach me directly at <strong>+91-8296118668</strong>.
           <br />
           <br />
